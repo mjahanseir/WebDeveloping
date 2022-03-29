@@ -11,6 +11,8 @@ app.get('/content:id', function (req,res){
     var myVar= req.params.id;
     res.send(" this is a message with " + myVar + " content")
 })
+
+//express running
 app.listen(3010, function (){
     console.log("server started....")
 })
