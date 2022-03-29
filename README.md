@@ -261,9 +261,11 @@ Then the component can be embedded within a table in the App class using the arr
         </tbody>
       </table>
 Here we use an arrow function:
-      (person, i) => <TableRow key={i} tableData={person} />
+      (person, i) => <TableRow key={i} tableData={person} />     
+.      
 where person is the element to be mapped, i is the index and TableRow is the receiving component which will have two variables, i and person, passed as properties key and tableData to be referenced within the TableRow component. Note that 'person' and 'tableData' are just identifiers and these names are not dependent on any other identifier used in this.state.
 
 What we've essentially done is use the map function to generate an array of TableRow components, each populated with one data object.
+
 
 For a review of how the javascript array function map() works, check the Mozilla documentation.
