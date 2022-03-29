@@ -1,22 +1,34 @@
 import React, {Component} from "react";
-
-class App extends Component{
+class App extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            myVar: "this is  just some text",
+            data: [{ "id": 1, "name": "Foo", "age": "20" }, { "id": 2, "name": "Bar", "age": "30" }, { "id": 3, "name": "Baz", "age": "40" }]
+        }
     }
     render() {
         return (
-            <div>
-                <h1>{this.props.headerProp}</h1>
-                <h1>{this.props.contentProp}</h1>
-            </div>
-
+            <table>
+                <tbody>
+                {this.state.data.map((person, i) =>
+                    <TableRow key={i} tableData={person} />)}
+                </tbody>
+            </table>
+        );
+    }
+}
+class TableRow extends Component {
+    render() {
+        return (
+            <tr>
+                <td>{this.props.tableData.id}</td>
+                <td>{this.props.tableData.name}</td>
+                <td>{this.props.tableData.age}</td>
+            </tr>
         );
     }
 }
 
-App.defaultProps = {
-    headerProp: "Header from default props...",
-    contentProp: "Content from default props..."
-}
+
 export default App;
