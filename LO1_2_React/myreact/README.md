@@ -1,5 +1,92 @@
-## Stateful REACT
-State
+## 1- First REACT Code
+We'll start by creating a file in the src folder called index.js. This is the main starting point for our app and is hardcoded into the app's config files.
+Inside this file, add the following lines:
+
+              import React from 'react';
+              import ReactDOM from 'react-dom';
+We'll come back to this file once there is something to render to our browser window.
+
+Now create a file in src called App.jsx. This is an extensible form of javascript where jsx stands for JavaScript XML. Essentially it allows us to write html directly into our javascript. We'll start by adding an import and creating our first component.
+
+Add the import line:  import React, {Component} from 'react';
+
+Now add the following after this:
+
+            class App extends Component {
+
+            }
+Now that we have a component called App, we need to be able to have it return html to be rendered. This is done by adding a render() method as follows:
+
+            class App extends Component {
+                 render(){
+                    return( 
+
+                    );
+                 }
+            }
+One of the most common mistakes at this point is getting mixed up regarding parentheses and brackets. Add something simple to display:
+
+             <h1>My Header</h1>
+inside the return block. Finally, we have to add an export line at the end of the file to export our component to be used:
+
+   export default App;
+Now return to the index.js file and add the following lines after the import lines:
+
+import App from './App';
+ReactDOM.render(<App />, document.getElementById('root'));
+This imports the component into this index.js file and then renders it to the browser window, within the div we saw in the index.html file(the one with id='root').
+
+Once both files are saved, npm will restart the app and you should see the following in the browser window.
+
+
+
+Congratulations! You've created your first REACT component!
+
+
+
+<hr>
+
+## 2- REACT Components
+REACT is heavily component-based. This means we can not only create properly encapsulated components, we can embed them within other components. Create two additional components in the same App.jsx file. We'll call them Header and Content.
+
+            class Header extends Component {
+              render(){
+                return(
+                  <h1>My Header</h1>
+                );
+              }
+            }
+
+            class Content extends Component {
+              render(){
+                return(
+                  <p>My Content</p>
+                );
+              }
+            }
+We can then embed these components within our original App component. We do this by referencing them as xml tags:
+
+            class App extends React.Component {
+              render(){
+                return(
+                  <div>
+                    <Header />
+                    <Content />
+                  </div>
+                );
+              }
+            }
+Note that in this case, Header and Content must be enclosed in a div. When there is only one thing, this isn't required but when there are two or more adjacent components, tags, etc they have to be enclosed in a container of some kind.
+
+Since these are classes, we can also invoke a constructor method right before render(). This is done if we want to include state within our component and is discussed in the next item.
+
+
+<hr>
+
+
+## 3- Stateful REACT
+
+## State
 
 Maintaining state within a REACT component requires the use of a constructor method and the this.state object. For our initial App component this would be:
 
