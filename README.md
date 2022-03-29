@@ -274,7 +274,7 @@ For a review of how the javascript array function map() works, check the Mozilla
 <hr>
 
 
-# Prop Validation
+# 4- Prop Validation
 
 Recall that javascript is weakly typed so the values of the properties we set can be any type. It may be useful to perform some type validation on props which can be done using a package called Prop-Types.
 
