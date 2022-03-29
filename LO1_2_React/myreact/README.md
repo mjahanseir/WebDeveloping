@@ -1,70 +1,131 @@
-# Getting Started with Create React App
+## Stateful REACT
+State
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Maintaining state within a REACT component requires the use of a constructor method and the this.state object. For our initial App component this would be:
 
-## Available Scripts
+      class App extends Component {
+        constructor(){
+          super();
+          this.state = { ...  }
+        }
+        render(){
+          return(
+            <h1>My Header</h1>
+          );
+        }
+      }
+Note that we also invoke the parent constructor with super(). this.state will contain any data we wish to have available to work with in our component. It can contain one or more items and the items can be different data types or arrays. Let's update our App's state by adding an array of objects called data.
 
-In the project directory, you can run:
+    constructor() {
+      super();
+      this.state = {
+        data: [ {   },{   },{   } ]
+      }
+    }
+now some fields('id', 'name' and 'age') and data in those objects: 
 
-### `npm start`
+    constructor() {
+      super();
+      this.state = {
+        data: 
+        [
+          {
+            "id":1,
+            "name":"Foo",
+            "age":"20"
+          },
+          {
+            "id":2,
+            "name":"Bar",
+            "age":"30"
+          },
+          {
+            "id":3,
+            "name":"Baz",
+            "age":"40"
+          }
+        ]
+      }
+    }
+We could also have this along with a single valued variable as well:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    constructor() {
+      super();
+      this.state = {
+        myvar: "This is just some text",
+        data: 
+        [
+          ...
+        ]
+      }
+    }
+So the built-in state object allows us to store whatever data we need within our component. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+We may also need some way to get data into a component as well. This can be done using Properties.
 
-### `npm test`
+## Props
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Props or properties are immutable variables which allow a means to pass data into a component. Properties are named by the passing module and that naming is then used to reference the property data in the receiving component.
 
-### `npm run build`
+There are three ways to look at props:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Passing properties into our top level component from index.js
+- Passing properties to child components
+- Using default properties
+Properties can be passed into our top level component by altering the ReactDOM.render as follows:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    ReactDOM.render(
+      <App headerProp = "Header from props..." contentProp = "Content from props..." /> , 
+      document.getElementById('root'));
+These can then be referred to in our App component via the this.props object after including the parameter props in the constructors.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+      constructor(props){
+        super(props);
 
-### `npm run eject`
+      }
+      render(){
+        return(
+          <div>
+            <h1>{this.props.headerProp}</h1>
+            <h2>{this.props.contentProp}</h2>
+          </div>
+        );
+      }
+We can also use default properties by adding the following:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+      App.defaultProps = {
+        headerProp: "Header from default props...",  
+        contentProp: "Content from default props..."
+      }
+Finally, we can use props as a mechanism to pass state data from the parent component to child components:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Consider our component with this.state containing an array of objects called data as shown above. We could create a table in the parent object and then create a table row object as a child and pass our data array to the child to be outputted in table rows.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The table row component could be created as:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+      class TableRow extends Component {
+        render(){
+          return(
+            <tr>
+              <td>{this.props.tableData.id}</td>
+              <td>{this.props.tableData.name}</td>
+              <td>{this.props.tableData.age}</td>
+            </tr>
+          );
+        }
+      }
+Then the component can be embedded within a table in the App class using the array map function:
 
-## Learn More
+      <table>
+        <tbody>
+          {this.state.data.map((person, i) => <TableRow key = {i} tableData = {person} />)}
+        </tbody>
+      </table>
+Here we use an arrow function:
+      (person, i) => <TableRow key = {i} tableData = {person} />
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+where person is the element to be mapped, i is the index and TableRow is the receiving component which will have two variables, i and person, passed as properties key and tableData to be referenced within the TableRow component. Note that 'person' and 'tableData' are just identifiers and these names are not dependent on any other identifier used in this.state.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+What we've essentially done is use the map function to generate an array of TableRow components, each populated with one data object.
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+For a review of how the javascript array function map() works, check the Mozilla documentation.
