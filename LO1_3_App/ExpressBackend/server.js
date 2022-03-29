@@ -25,7 +25,17 @@ backend.get("/music", (req, res) => {
         return res.status(200).json({ success: true, data: albums });
     });
 });
-
+backend.get("/music/:id", (req, res) => {
+    Album.findById(req.params.id, (err, albums) => {
+        if (err) {
+            return res.status(400).json({ success: false, error: err });
+        }
+        if (!Album.length) {
+            return res.status(404).json({ success: false, error: "No albums found" });
+        }
+        return res.status(200).json({ success: true, data: albums });
+    });
+});
 backend.listen(3010, () => {
     console.log("server started");
 });
