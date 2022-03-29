@@ -16,7 +16,10 @@ const musicSchema= new mongoose.Schema(
         year:{type: number,  required:false},
         artwork:{type: String,  required:false}
     }
-)
+);
+
+const Album= mongoose.model("Album",musicSchema);
+
 
 backend.listen(3010, ()=>{
     console.log("server started")
