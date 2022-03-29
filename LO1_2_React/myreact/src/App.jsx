@@ -15,5 +15,8 @@ class App extends Component{
     }
 }
 
-
+App.defaultProps = {
+    headerProp: "Header from default props...",
+    contentProp: "Content from default props..."
+}
 export default App;
