@@ -62,7 +62,7 @@ backend.get(  '/music', function(req,res){
             .json( { success : false , error : err } );
         }
        
-        if( !albums.length){         //if(err) { return res.status(....).json( ..... ); }
+        if( !Album.length){         //if(err) { return res.status(....).json( ..... ); }
             return res
                     .status(404)
                     .json( { success : false , error : "No albums found" } );
