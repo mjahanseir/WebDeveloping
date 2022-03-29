@@ -36,6 +36,30 @@ backend.get("/music/:id", (req, res) => {
         return res.status(200).json({ success: true, data: albums });
     });
 });
+backend.post("/music", (req, res) => {
+    const body = req.body;
+    if (!body) {
+        return res
+            .status(400)
+            .json({ success: false, error: "You must specify album information" });
+    }
+    const album = new Album(body);
+    if (!album) {
+        return res
+            .status(400)
+            .json({ success: false, error: "Album creation failed." });
+    }
+    album
+        .save()
+        .then(() => {
+            return res
+                .status(201)
+                .json({ success: true, id: album._id, message: "Album created." });
+        })
+        .catch((error) => {
+            return res.status(400).json({ error, message: "Album not created" });
+        });
+});
 backend.listen(3010, () => {
     console.log("server started");
 });
