@@ -7,27 +7,13 @@ class App extends Component{
     render() {
         return (
             <div>
-              <Header/>
-                <Content/>
+                <h1>{this.props.headerProp}</h1>
+                <h1>{this.props.contentProp}</h1>
             </div>
 
         );
     }
 }
 
-class Header extends Component{
-    render(){
-        return (
-            <h1> This is the Header </h1>
-        );
-    }
-}
-class Content extends Component{
-    render(){
-        return (
-            <h1> This is the Content </h1>
-        );
-    }
-}
 
 export default App;
