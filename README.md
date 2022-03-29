@@ -270,3 +270,49 @@ What we've essentially done is use the map function to generate an array of Tabl
 
 
 For a review of how the javascript array function map() works, check the Mozilla documentation.
+
+<hr>
+
+
+# Prop Validation
+
+Recall that javascript is weakly typed so the values of the properties we set can be any type. It may be useful to perform some type validation on props which can be done using a package called Prop-Types.
+
+### First, start by importing from the prop-types package:
+
+import PropTypes from 'prop-types';
+Then validation can be set up for the component by creating ---- . propTypes to define the validation rules we wish to use. In our case, we will create App.propTypes.
+
+      App.propTypes = {
+        propString: PropTypes.string,
+        propNumber: PropTypes.number,
+        propBoolean: PropTypes.bool.isRequired,
+        propObject: PropTypes.object,
+        propArray: PropTypes.array.isRequired,
+        propFunction: PropTypes.func
+      }
+We can set up some sample data with default props:
+
+     App.defaultProps = {
+       propString: "Some string",
+       propNumber: 10,
+       propBoolean: true,
+       propObject: {
+         field1:"Val1",
+         field2:"Val2"
+       },
+       propArray: [1,2,3,4,5],
+       propFunction: function(x){return x}
+     }
+### Finally, we can add some content to the component to display the props.
+
+     <div>
+       <p>String: {this.props.propString}</p>
+       <p>Number: {this.props.propNumber}</p>
+       <p>Bool: {this.props.propBoolean ? "True..." : "False..."}</p>
+       <p>Object: {this.props.propObject.field1}</p>
+       <p>Object: {this.props.propObject.field2}</p>
+       <p>Array: {this.props.propArray}</p>
+       <p>Func: {this.props.propFunction(3)}</p>
+     </div>
+To check the typing, try changing one of the default prop values to an invalid type and then check the console.  Any exceptions raised will show in the console.
