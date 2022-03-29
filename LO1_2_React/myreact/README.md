@@ -1,3 +1,36 @@
+## 0- Introduction to React
+# What is REACT?
+
+REACT is a nodejs library used to build front-ends for nodejs web applications. The library was developed by Facebook and is used to develop the view layer of a web app. REACT uses a component model and so therefore we create components which, in turn, can be reused. This is one reason for REACT being one of the most popular js libraries.
+
+# Installation
+
+Installing REACT can be done simply by creating a template REACT app using the following command:
+      npx create-react-app _____ 
+      
+where you can specify an app name in the blank. Note that app names cannot contain capital letters and only hyphens are allowed aside from alphanumeric characters. This process will take some time to run as node will have to download the package content which is quite a bit larger than other packages. Once this is done, we will have a react app residing in the directory named for the app we created. If you received an error at this point, see below "Troubleshooting Install". Navigate into that directory and type
+
+      npm start
+We can do this whenever we want and leave it. npm will monitor files and if we change anything, automatically restart our app for us. If everything worked correctly, the app will start and open a browser window. In the browser window, you should see a rotating REACT logo. 
+
+Now to look at some of the files created. You will find most files in two directories: public and src. First navigate to the public directory and open the index.html file. DO NOT CHANGE THIS FILE. You can scroll to the body of the file and note a div with an id set to 'root'. This is where our app will eventually be rendered.
+
+We will be creating our first real REACT app in these directories so we can delete most of the files. In the src directory, delete everything. You can choose to leave the public directory alone or you can delete everything except the index.html file. The main thing is that we clear out the src file since that is where all of the files to be created will reside.
+
+That's initial setup done. Now to start writing some REACT code.
+
+# Troubleshooting Install
+
+One issue that can happen in Windows environments is if your user directory is your first and last name with a space. npx doesn't allow this. Part of the initial setup is to install REACT which it will attempt to do in the npm cache directory. The default for this is : "C:\Users\<USERNAME>\AppData\Roaming\npm-cache". If this is the case for you, you will need to set a different cache directory. You can do this with the following steps:
+
+edit the npm config file. At the command line:    npm config edit
+look for a line that looks like cache=C:\Users\<USERNAME>\AppData\Roaming\npm-cache
+
+it should be only a few lines down. Create a new folder, say, C:\npmcache and set that line, without the ;, and with cache set to this folder.
+Then try running the initial npx command again.
+
+<hr>
+
 ## 1- First REACT Code
 We'll start by creating a file in the src folder called index.js. This is the main starting point for our app and is hardcoded into the app's config files.
 Inside this file, add the following lines:
