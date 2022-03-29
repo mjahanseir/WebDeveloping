@@ -18,11 +18,11 @@ var movieSchema= new mongoose.Schema({
 var Movie= mongoose.model("Movie", movieSchema);
 
 // ROUTE
-server.get('/' , (req, res)=> res.redirect(("/movie")));
+server.get('/' , (req, res)=> res.redirect("/movie"));
 server.get('/movie' , (req, res)=> {
     Movie.find({}, (err,movies)=>{
         if(err) return res.status(400).json({success:false , error:err});
-        if(!movie.length) return res.status(404).json({success:false , error:"No Movies Found"});
+        if(!movies.length) return res.status(404).json({success:false , error:"No Movies Found"});
         return res.status(200).json({access:true , date:movies});
     })
 });
