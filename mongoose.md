@@ -3,7 +3,9 @@
 
 ###  CREATE A CONNECTION TO THE MONGO DB
                 
-        mongoose.connect("mongodb://192.168.75.128(or localhost):27017/movie",{useNewUrlParser:true})
+        mongoose.connect("mongodb://192.168.75.128
+                                (or localhost):27017/movie",
+                                {useNewUrlParser:true})
         server.use(bodyParser.json());
 
 ### DEFINE SCHEMA OBJECT CORRESPONDING TO DB COLLECTOIN
