@@ -13,7 +13,7 @@
 
 
 <hr>
-#      ------      Node.js      ----- 
+# Node.js
 <hr>
 # Node0 - Introduction to Node
 One of the defacto standards that has emerged in recent years for web application development is Nodejs. You will see reference to various different frameworks such as React, Angular, Vue and others but all of these are Node-based frameworks. As we will see upcoming, these frameworks are entirely dependent on Node.
@@ -149,7 +149,7 @@ So here we have a few new things. First, we've added a parameter to the route ca
 That's it for our first, introductory express web app!
 
 <hr>
-#      ------      REST      ----- 
+#  REST
 <hr>
 # REST Concept
 REST stands for REpresentational State Transfer and is currently the most popular architecture for web application development. Some things that make REST appealing for web development include:
@@ -205,7 +205,7 @@ destroy   /dataitem/:id  DELETE    delete a particular dataitem and then redirec
 Note that while there are seven routes, some can be implemented in the front-end while some must be implemented as the back-end. The individual routes using PUT, POST and DELETE are implemented in the backend while the front-end provides an initial form or view(GET) which in turn triggers these routes. 
 <hr>
 <hr>
-#      ------      REACT      -----      
+# REACT   
 <hr>
 # React0- Introduction to React
 ### What is REACT?
