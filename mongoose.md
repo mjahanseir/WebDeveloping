@@ -8,8 +8,8 @@
 
 ### DEFINE SCHEMA OBJECT CORRESPONDING TO DB COLLECTOIN
         var movieSchema= new mongoose.Schema({
-        title:{type: String, required:false},
-        year:{type: Number, required:false},
-        imdb:{type: String, required:false},
-        type:{type: String, required:false}
+            title:{type: String, required:false},
+            year:{type: Number, required:false},
+            imdb:{type: String, required:false},
+            type:{type: String, required:false}
         });
