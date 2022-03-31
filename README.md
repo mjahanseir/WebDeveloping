@@ -13,8 +13,10 @@
 
 
 <hr>
+
+
 # Node.js
-<hr>
+
 # Node0 - Introduction to Node
 One of the defacto standards that has emerged in recent years for web application development is Nodejs. You will see reference to various different frameworks such as React, Angular, Vue and others but all of these are Node-based frameworks. As we will see upcoming, these frameworks are entirely dependent on Node.
 
@@ -147,10 +149,13 @@ We can also allow a mechanism to pass a parameter as part of the route. By addin
 So here we have a few new things. First, we've added a parameter to the route called :myParam. We then retrieve the value passed from the client's browser by referring to req.params.<param_name>.  We can then use that value however we need to. Try the route out by saving and restarting the server, then entering localhost:3010/next/ in the address bar and adding any random text you want on the end. You should see the text you entered in the page that gets displayed.
 
 That's it for our first, introductory express web app!
+<hr>
 
-<hr>
+
+
+
 #  REST
-<hr>
+
 # REST Concept
 REST stands for REpresentational State Transfer and is currently the most popular architecture for web application development. Some things that make REST appealing for web development include:
 
@@ -204,9 +209,9 @@ destroy   /dataitem/:id  DELETE    delete a particular dataitem and then redirec
 
 Note that while there are seven routes, some can be implemented in the front-end while some must be implemented as the back-end. The individual routes using PUT, POST and DELETE are implemented in the backend while the front-end provides an initial form or view(GET) which in turn triggers these routes. 
 <hr>
-<hr>
+
+
 # REACT   
-<hr>
 # React0- Introduction to React
 ### What is REACT?
 
