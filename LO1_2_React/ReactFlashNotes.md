@@ -38,8 +38,9 @@ Example:
           ReactDom.render(<App name=”Dave” />, document.getbyID(‘root’);)
 
 State doesn't have to be defined entirely in the constructor .It can be altered w/in our component.
-            Don't do —-------->   state.name=”Joe”
-            Instead —-------->     setState(variable :   value)
+           
+            * Don't do —-------->   state.name=”Joe”
+            * Instead —-------->     setState(variable :   value)
 - If we create handler methods in a component they will need to found if they work w/ state method
 
          this._________=this._____.bind(this);
