@@ -7,5 +7,5 @@
 - [REACT](https://github.com/mjahanseir/WebDeveloping/blob/main/React/React.md)
 - [REACT notes](https://github.com/mjahanseir/WebDeveloping/blob/main/React/ReactFlashNotes.md)
 - [Exploring MongoDB (.pdf)](https://github.com/mjahanseir/WebDeveloping/blob/main/MongoDB/ExploringMongoDB.pdf)
-- [Setting up MongoDB (.pdf)](https://github.com/mjahanseir/WebDeveloping/blob/main/MongoDB/Setting%20up%20MongoDB.pdf.pdf)
+- [Setting up MongoDB (.pdf)](https://github.com/mjahanseir/WebDeveloping/blob/main/MongoDB/SettingUpMongoDB.pdf.pdf)
 
